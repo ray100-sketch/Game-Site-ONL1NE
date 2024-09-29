@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Work</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Games ONL</h1>
+    <h2>By ray100sketch on gh</h2>
+    <h3>A game website, with custom settings and an ultrafast proxy.</h3>
+    <button id="launchUltraviolet" class="game-btn">Launch Ultraviolet</button>
+    <button id="launchGames" class="game-btn">Games</button>
+    <button id="openSettings" class="game-btn">Settings</button>
+  </div>
+
+  <!-- Settings Section -->
+  <div class="container" id="settingsSection" style="display:none;">
+    <h1>Settings</h1>
+
+    <!-- Change Page Title -->
+    <label for="pageTitle">Change Page Title:</label>
+    <input type="text" id="pageTitle" placeholder="Enter new title" />
+    <br><br>
+
+    <!-- Change Background Color -->
+    <label for="bgColor">Change Background Color:</label>
+    <input type="color" id="bgColor" />
+    <br><br>
+
+    <!-- Bookmarklets Section (placeholder for later) -->
+    <h2>Bookmarklets:</h2>
+    <p>Bookmarklet functionality will be added here later.</p>
+    <br><br>
+
+    <!-- Apply Changes Button -->
+    <button id="applyChanges">Apply Changes</button>
+  </div>
+
+  <script>
+    // Launch Ultraviolet Proxy
+    document.getElementById('launchUltraviolet').addEventListener('click', function() {
+      const newWindow = window.open('about:blank', '_blank');
+      if (newWindow) {
+        newWindow.document.write('<h1>Loading Ultraviolet Proxy...</h1>');
+        setTimeout(() => {
+          newWindow.location.href = 'http://127.0.0.1:8080'; // Proxy redirect
+        }, 1000);
+      }
+    });
+
+    // Open Blank Games Page
+    document.getElementById('launchGames').addEventListener('click', function() {
+      const gamesWindow = window.open('about:blank', '_blank');
+      gamesWindow.document.write('<h1>Game Page</h1>');
+    });
+
+    // Open Settings Page
+    document.getElementById('openSettings').addEventListener('click', function() {
+      const settingsSection = document.getElementById('settingsSection');
+      settingsSection.style.display = 'block';  // Show settings section
+    });
+
+    // Apply Settings Changes (Title and Background Color)
+    document.getElementById('applyChanges').addEventListener('click', function() {
+      const newTitle = document.getElementById('pageTitle').value;
+      const newBgColor = document.getElementById('bgColor').value;
+
+      // Change page title
+      if (newTitle) {
+        document.title = newTitle;
+      }
+
+      // Change background color
+      if (newBgColor) {
+        document.body.style.backgroundColor = newBgColor;
+      }
+      
+    });
+  </script>
+</body>
+</html>
